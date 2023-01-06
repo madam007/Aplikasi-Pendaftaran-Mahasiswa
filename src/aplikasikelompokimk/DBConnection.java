@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.Statement;
 /**
  *
  * @author adam
@@ -20,7 +19,7 @@ public class DBConnection {
     static String user="root";
     static String pass="adamsjr123";
     static Connection conn;
-    static Statement stat;
+    
     static ResultSet rs;
     
     public static Connection connectDatabase(){
@@ -39,5 +38,7 @@ public class DBConnection {
         }
         return conn;
     }
+    
+    
    
 }

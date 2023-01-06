@@ -4,12 +4,15 @@
  */
 package aplikasikelompokimk;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author adam
  */
 public class Halaman_utama extends javax.swing.JFrame {
-
+    // variabel
+   
     /**
      * Creates new form Halaman_utama
      */
@@ -132,8 +135,6 @@ public class Halaman_utama extends javax.swing.JFrame {
                 .addContainerGap(144, Short.MAX_VALUE))
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(204, 255, 255));
-
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/aplikasikelompokimk/gambar/menu.png"))); // NOI18N
 
         cekdata.setText("Cek data");
@@ -214,10 +215,15 @@ public class Halaman_utama extends javax.swing.JFrame {
 
     private void pendaftaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pendaftaraActionPerformed
         // TODO add your handling code here:
-        
-        HalamanDaftar daftar = new HalamanDaftar();
+      try{
+      if(HalamanLogin.usernamelogintxt.getText().equals(Buatakun.username) && HalamanLogin.passwordlogintxt.getText().equals(Buatakun.password)){
+           HalamanDaftar daftar = new HalamanDaftar();
         daftar.setVisible(true);
         this.dispose();
+        }
+      }catch(Exception e){
+        JOptionPane.showMessageDialog(null, "Anda belum login", "error", JOptionPane.ERROR_MESSAGE);    
+      }
     }//GEN-LAST:event_pendaftaraActionPerformed
 
     private void TentangkamiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TentangkamiActionPerformed

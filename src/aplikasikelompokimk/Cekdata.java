@@ -3,24 +3,35 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package aplikasikelompokimk;
+
+import java.awt.Color;
+import java.awt.print.PrinterException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author adam
  */
 public class Cekdata extends javax.swing.JFrame {
-
+// variabel
+    int q,i,id,deleteitem;
     /**
      * Creates new form Cekdata
      */
     public Cekdata() {
         initComponents();
         showTable();
+       
     }
 
     /**
@@ -32,24 +43,49 @@ public class Cekdata extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
-        showtabel = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        deletebtn = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        showtabel = new javax.swing.JTable();
+        updatebtn = new javax.swing.JButton();
+        printbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setLocation(new java.awt.Point(150, 100));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(4000, 806));
+        jButton1.setText("Kembali");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        showtabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        deletebtn.setBackground(new java.awt.Color(102, 0, 102));
+        deletebtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        deletebtn.setForeground(new java.awt.Color(255, 255, 255));
+        deletebtn.setText("Delete");
+        deletebtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deletebtnMouseClicked(evt);
+            }
+        });
+
+        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
+
         showtabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "No", "Nama", "Tempat lahir", "Tanggal lahir", "Jenis kelamin", "Kewarganegaraan", "Agama", "NIK", "Email", "No telpon", "Pendidikan Terakhir", "Nama sekolah", "Kode pos", "Program study 1", "Program study 2", "Provinsi", "Alamat", "Kecamatan", "Kabupaten"
+                "No", "Nama pendaftar", "Tempat lahir", "Tanggal lahir", "Jenis kelamin", "Kewarganegaraan", "Agama", "NIK", "Email", "No telpon", "Pendidikan Terakhir", "Nama sekolah", "Kode pos", "Program studi 1", "Program studi 2", "Provinsi", "Alamat", "Kecamatan", "Kabupaten"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -60,31 +96,49 @@ public class Cekdata extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        showtabel.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        showtabel.setPreferredSize(new java.awt.Dimension(3000, 800));
+        showtabel.setShowGrid(true);
+        jScrollPane3.setViewportView(showtabel);
+        if (showtabel.getColumnModel().getColumnCount() > 0) {
+            showtabel.getColumnModel().getColumn(1).setPreferredWidth(50);
+            showtabel.getColumnModel().getColumn(18).setResizable(false);
+        }
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(showtabel, javax.swing.GroupLayout.DEFAULT_SIZE, 3988, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 4097, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(showtabel, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 349, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
-        jScrollPane2.setViewportView(jPanel2);
+        jScrollPane2.setViewportView(jPanel1);
 
-        jButton1.setText("Kembali");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        updatebtn.setBackground(new java.awt.Color(204, 204, 0));
+        updatebtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        updatebtn.setForeground(new java.awt.Color(255, 255, 255));
+        updatebtn.setText("Update");
+        updatebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                updatebtnActionPerformed(evt);
+            }
+        });
+
+        printbtn.setBackground(new java.awt.Color(0, 51, 255));
+        printbtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        printbtn.setForeground(new java.awt.Color(255, 255, 255));
+        printbtn.setText("Print");
+        printbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printbtnActionPerformed(evt);
             }
         });
 
@@ -92,19 +146,38 @@ public class Cekdata extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1033, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 587, Short.MAX_VALUE)
+                        .addComponent(printbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(updatebtn)
+                        .addGap(33, 33, 33)
+                        .addComponent(deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
-                .addGap(49, 49, 49)
-                .addComponent(jButton1)
-                .addGap(15, 15, 15))
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(15, 15, 15))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(updatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(printbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28))))
         );
 
         pack();
@@ -112,12 +185,136 @@ public class Cekdata extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        Halaman_utama utama=new Halaman_utama();
+        Halaman_utama utama = new Halaman_utama();
         utama.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-    
-    private void showTable() {
+
+    private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
+        // TODO add your handling code here:
+        try {
+            if (showtabel.getSelectedRow() < 0) {
+                JOptionPane.showMessageDialog(null, "klik tabel terlebih dahulu", "error", JOptionPane.ERROR_MESSAGE);
+
+            } else {
+                int klik = JOptionPane.showConfirmDialog(null, "Apakah data anda ingin di ubah?", "Update", JOptionPane.YES_OPTION);
+                if (klik == JOptionPane.NO_OPTION) {
+                    Cekdata data = null;
+                    data.setVisible(true);
+                } else {
+                    HalamanDaftar daftar = new HalamanDaftar();
+                    DefaultTableModel tableModel;
+                    tableModel = (DefaultTableModel) showtabel.getModel();
+                    int selekbaris = showtabel.getSelectedRow();
+                    
+                    // id
+                    daftar.inputId.setText(tableModel.getValueAt(selekbaris, 0).toString());
+                    //nama lengkap
+                    daftar.texkinputnama.setText(tableModel.getValueAt(selekbaris, 1).toString());
+
+                    //tempat lahir
+                    daftar.texttempatlahir.setText(tableModel.getValueAt(selekbaris, 2).toString());
+
+                    //tanggal lahir
+                    daftar.texttanggallahir.setText(tableModel.getValueAt(selekbaris, 3).toString());
+
+                    // jenis kelamin
+                    if (tableModel.getValueAt(selekbaris, 4).toString().equals("Laki-laki")) {
+                        daftar.lakiradiobutton.setSelected(true);
+                    } else if (tableModel.getValueAt(selekbaris, 4).toString().equals("Perempuan")) {
+                        daftar.perempuanradiobutton.setSelected(true);
+                    }
+
+                    //Kewarganegaraan
+                    daftar.kewarganegaraancombobox.setSelectedItem(tableModel.getValueAt(selekbaris, 5));
+
+                    // agama
+                    daftar.agamacombobox.setSelectedItem(tableModel.getValueAt(selekbaris, 6));
+
+                    //NIK
+                    daftar.textNik.setText(tableModel.getValueAt(selekbaris, 7).toString());
+
+                    //Email
+                    daftar.textEmail.setText(tableModel.getValueAt(selekbaris, 8).toString());
+
+                    //telpon
+                    daftar.textTelpn.setText(tableModel.getValueAt(selekbaris, 9).toString());
+
+                    //pendidikan terakhir
+                    daftar.pendidikancombobox.setSelectedItem(tableModel.getValueAt(selekbaris, 10).toString());
+
+                    //nama sekolah
+                    daftar.textnamsekolah.setText(tableModel.getValueAt(selekbaris, 11).toString());
+
+                    //kode pos
+                    daftar.textkodepos.setText(tableModel.getValueAt(selekbaris, 12).toString());
+
+                    //program study1
+                    daftar.jurusan1.setSelectedItem(tableModel.getValueAt(selekbaris, 13).toString());
+
+                    //program study2
+                    daftar.jurusan2.setSelectedItem(tableModel.getValueAt(selekbaris, 14).toString());
+
+                    //provinsi
+                    daftar.textprovinsi.setText(tableModel.getValueAt(selekbaris, 15).toString());
+
+                    //alamat
+                    daftar.textpanealamat.setText(tableModel.getValueAt(selekbaris, 16).toString());
+
+                    //kecamatan
+                    daftar.textkecmatan.setText(tableModel.getValueAt(selekbaris, 17).toString());
+
+                    //kabupaten
+                    daftar.textkabkota.setText(tableModel.getValueAt(selekbaris, 18).toString());
+
+                    //display
+                    daftar.daftarbtn.setVisible(false);
+                    daftar.updatebtn.setVisible(true);
+                    daftar.setVisible(true);
+                    this.dispose();
+                }
+            }
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        
+    }//GEN-LAST:event_updatebtnActionPerformed
+
+    private void deletebtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deletebtnMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel tableModel;
+        tableModel = (DefaultTableModel) showtabel.getModel();
+        int selekbaris = showtabel.getSelectedRow();
+        try{
+        id = Integer.parseInt(tableModel.getValueAt(selekbaris, 0).toString());
+        deleteitem = JOptionPane.showConfirmDialog(null, "Anda yakin ingin menghapus?","Peringatan",JOptionPane.YES_NO_OPTION);
+        if(deleteitem == JOptionPane.YES_OPTION){
+            Connection conn = (Connection) DBConnection.connectDatabase();
+            PreparedStatement pst = conn.prepareStatement("DELETE from Tabel_Pendaftaran where id=?");
+            pst.setInt(1, id);
+            pst.executeUpdate();
+             
+            
+        }
+        }catch(SQLException ex){
+     Logger.getLogger(HalamanDaftar.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+    }//GEN-LAST:event_deletebtnMouseClicked
+
+    private void printbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printbtnActionPerformed
+        // TODO add your handling code here:
+        MessageFormat header = new MessageFormat("Printing in progress");
+        MessageFormat footer = new MessageFormat("Page {0,number,integer}");
+        
+        try{
+           showtabel.print(JTable.PrintMode.NORMAL,header,footer);
+        }catch(PrinterException e){
+            System.err.format("Printer tidak ditemukan", e.getMessage());
+        }
+    }//GEN-LAST:event_printbtnActionPerformed
+
+    public void showTable() {
         try {
             Statement stat = (Statement) DBConnection.connectDatabase().createStatement();
             String sql = "select * from Tabel_Pendaftaran";
@@ -132,12 +329,10 @@ public class Cekdata extends javax.swing.JFrame {
                 }));
             }
         } catch (SQLException ex) {
-              Logger.getLogger(Cekdata.class.getName()).log(Level.SEVERE,null,  ex);
+            Logger.getLogger(Cekdata.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
-    
+
     /**
      * @param args the command line arguments
      */
@@ -174,9 +369,13 @@ public class Cekdata extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton deletebtn;
     private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable showtabel;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JButton printbtn;
+    public javax.swing.JTable showtabel;
+    private javax.swing.JButton updatebtn;
     // End of variables declaration//GEN-END:variables
 }

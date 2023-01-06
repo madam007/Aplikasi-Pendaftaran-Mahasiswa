@@ -15,7 +15,7 @@ public class HalamanLogin extends javax.swing.JFrame{
      * Creates new form HalamanLogin
      */
     // variabel
-    private String username,password;
+ 
 
     
     public HalamanLogin() {
@@ -235,9 +235,8 @@ public class HalamanLogin extends javax.swing.JFrame{
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         // TODO add your handling code here:
-        username = usernamelogintxt.getText();
-        password = passwordlogintxt.getText();
-        if (username.equals(Buatakun.username) && password.equals(Buatakun.password)) {
+       
+        if (usernamelogintxt.getText().equals(Buatakun.username) &&  passwordlogintxt.getText().equals(Buatakun.password)) {
             JOptionPane.showConfirmDialog(null, "SUCCES", "succes", JOptionPane.OK_OPTION);
             Halaman_utama utama = new Halaman_utama();
             utama.setVisible(true);
@@ -294,7 +293,7 @@ public class HalamanLogin extends javax.swing.JFrame{
     private javax.swing.JButton kembali;
     private javax.swing.JButton login;
     private javax.swing.JButton login1;
-    private javax.swing.JPasswordField passwordlogintxt;
-    private javax.swing.JTextField usernamelogintxt;
+    public static javax.swing.JPasswordField passwordlogintxt;
+    public static javax.swing.JTextField usernamelogintxt;
     // End of variables declaration//GEN-END:variables
 }

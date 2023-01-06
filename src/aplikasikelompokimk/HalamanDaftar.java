@@ -21,7 +21,12 @@ public class HalamanDaftar extends javax.swing.JFrame {
     /**
      * Creates new form HalamanDaftar
      */
+    // variabel
+     public String jeniskelamin;
+    
+    
     public HalamanDaftar() {
+       
         initComponents();
        
     }
@@ -83,10 +88,12 @@ public class HalamanDaftar extends javax.swing.JFrame {
         jurusan1 = new javax.swing.JComboBox<>();
         jurusan2 = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
-        daftar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        daftarbtn = new javax.swing.JButton();
+        updatebtn = new javax.swing.JToggleButton();
         kembali = new javax.swing.JButton();
         setujucekbox = new javax.swing.JCheckBox();
+        inputId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -108,7 +115,6 @@ public class HalamanDaftar extends javax.swing.JFrame {
 
         jLabel3.setText("Nama Lengkap :");
 
-        texkinputnama.setForeground(new java.awt.Color(153, 153, 153));
         texkinputnama.setText("Masukan nama anda");
         texkinputnama.setToolTipText("");
         texkinputnama.setName(""); // NOI18N
@@ -128,7 +134,6 @@ public class HalamanDaftar extends javax.swing.JFrame {
 
         jLabel4.setText("Tempat Lahir:");
 
-        texttempatlahir.setForeground(new java.awt.Color(153, 153, 153));
         texttempatlahir.setText("Masukan Tempat lahir");
         texttempatlahir.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -146,7 +151,6 @@ public class HalamanDaftar extends javax.swing.JFrame {
 
         jLabel5.setText("Tanggal Lahir :");
 
-        texttanggallahir.setForeground(new java.awt.Color(153, 153, 153));
         texttanggallahir.setText("tg/bl/thn");
         texttanggallahir.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         texttanggallahir.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -173,7 +177,6 @@ public class HalamanDaftar extends javax.swing.JFrame {
 
         jLabel8.setText("Email :");
 
-        textEmail.setForeground(new java.awt.Color(153, 153, 153));
         textEmail.setText("Example@gmail.com");
         textEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -194,7 +197,6 @@ public class HalamanDaftar extends javax.swing.JFrame {
             }
         });
 
-        textTelpn.setForeground(new java.awt.Color(153, 153, 153));
         textTelpn.setText("08......");
         textTelpn.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -217,7 +219,6 @@ public class HalamanDaftar extends javax.swing.JFrame {
 
         jLabel9.setText("No.Telpon:");
 
-        textNik.setForeground(new java.awt.Color(153, 153, 153));
         textNik.setText("Masukan NIK");
         textNik.setToolTipText("");
         textNik.setName(""); // NOI18N
@@ -250,7 +251,6 @@ public class HalamanDaftar extends javax.swing.JFrame {
 
         jLabel12.setText("Alamat :");
 
-        textpanealamat.setForeground(new java.awt.Color(153, 153, 153));
         textpanealamat.setText("Ketikan");
         textpanealamat.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -267,7 +267,6 @@ public class HalamanDaftar extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(textpanealamat);
 
-        textprovinsi.setForeground(new java.awt.Color(153, 153, 153));
         textprovinsi.setText("provinsi");
         textprovinsi.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         textprovinsi.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -286,7 +285,6 @@ public class HalamanDaftar extends javax.swing.JFrame {
 
         jLabel13.setText("Provinsi:");
 
-        textkodepos.setForeground(new java.awt.Color(153, 153, 153));
         textkodepos.setText("Kode pos");
         textkodepos.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         textkodepos.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -305,7 +303,6 @@ public class HalamanDaftar extends javax.swing.JFrame {
 
         jLabel14.setText("Kode Pos:");
 
-        textkabkota.setForeground(new java.awt.Color(153, 153, 153));
         textkabkota.setText("kab/kota");
         textkabkota.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         textkabkota.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -324,7 +321,6 @@ public class HalamanDaftar extends javax.swing.JFrame {
 
         jLabel15.setText("Kabupaten/Kota:");
 
-        textkecmatan.setForeground(new java.awt.Color(153, 153, 153));
         textkecmatan.setText("kecamatan");
         textkecmatan.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         textkecmatan.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -349,7 +345,6 @@ public class HalamanDaftar extends javax.swing.JFrame {
 
         jLabel18.setText("Nama Sekolah:");
 
-        textnamsekolah.setForeground(new java.awt.Color(153, 153, 153));
         textnamsekolah.setText("nama sekolah");
         textnamsekolah.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -383,16 +378,6 @@ public class HalamanDaftar extends javax.swing.JFrame {
 
         jLabel22.setText("Pilih Program Studi 2:");
 
-        daftar.setBackground(new java.awt.Color(0, 51, 255));
-        daftar.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
-        daftar.setForeground(new java.awt.Color(255, 255, 255));
-        daftar.setText("Daftar");
-        daftar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                daftarActionPerformed(evt);
-            }
-        });
-
         jButton2.setBackground(new java.awt.Color(102, 0, 102));
         jButton2.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -400,6 +385,28 @@ public class HalamanDaftar extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        daftarbtn.setBackground(new java.awt.Color(0, 51, 255));
+        daftarbtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        daftarbtn.setForeground(new java.awt.Color(255, 255, 255));
+        daftarbtn.setText("Daftar");
+        daftarbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                daftarbtnActionPerformed(evt);
+            }
+        });
+
+        updatebtn.setBackground(new java.awt.Color(204, 204, 0));
+        updatebtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        updatebtn.setForeground(new java.awt.Color(255, 255, 255));
+        updatebtn.setText("Ubah");
+        updatebtn.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        updatebtn.setPreferredSize(new java.awt.Dimension(73, 25));
+        updatebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatebtnActionPerformed(evt);
             }
         });
 
@@ -416,6 +423,9 @@ public class HalamanDaftar extends javax.swing.JFrame {
                 setujucekboxItemStateChanged(evt);
             }
         });
+
+        inputId.setEditable(false);
+        inputId.setVisible(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -463,7 +473,7 @@ public class HalamanDaftar extends javax.swing.JFrame {
                                     .addComponent(jLabel18))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(textTelpn, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jLabel17)
@@ -473,61 +483,61 @@ public class HalamanDaftar extends javax.swing.JFrame {
                                         .addGap(23, 23, 23)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel8)
-                                    .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(105, 105, Short.MAX_VALUE))
+                                    .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(textnamsekolah, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel20)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(jLabel2))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel20)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel12)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel13)
-                                                .addGap(219, 219, 219)
-                                                .addComponent(jLabel15)))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(72, 72, 72)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel14)
-                                                    .addComponent(textkodepos, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(186, 186, 186)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(textkecmatan, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabel16)))))
+                                        .addComponent(jLabel13)
+                                        .addGap(219, 219, 219)
+                                        .addComponent(jLabel15)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(textprovinsi, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(textkabkota, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(72, 72, 72)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel14)
+                                            .addComponent(textkodepos, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(186, 186, 186)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(textkecmatan, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel16)))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(39, 39, 39)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel21)
-                                    .addComponent(jurusan1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(setujucekbox))
-                                .addGap(49, 49, 49)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel22)
-                                    .addComponent(jurusan2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(416, 416, 416)
-                                .addComponent(daftar)
-                                .addGap(47, 47, 47)
-                                .addComponent(jButton2))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSeparator2)
-                                .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
-                                .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)))
-                        .addGap(52, 52, Short.MAX_VALUE))))
+                                .addComponent(textprovinsi, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(textkabkota, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addComponent(jurusan1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(setujucekbox)
+                            .addComponent(inputId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(49, 49, 49)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addComponent(jurusan2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(453, 453, 453)
+                        .addComponent(daftarbtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(updatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jSeparator2)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
+                        .addComponent(jSeparator4, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(kembali, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -621,12 +631,20 @@ public class HalamanDaftar extends javax.swing.JFrame {
                 .addComponent(setujucekbox)
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(daftar)
-                    .addComponent(jButton2))
-                .addGap(18, 18, 18)
-                .addComponent(kembali)
+                    .addComponent(daftarbtn)
+                    .addComponent(jButton2)
+                    .addComponent(updatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(kembali))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(inputId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(62, 62, 62))
         );
+
+        updatebtn.setVisible(false);
 
         jScrollPane3.setViewportView(jPanel1);
 
@@ -668,7 +686,7 @@ public class HalamanDaftar extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (texkinputnama.getText().equals("")) {
             texkinputnama.setText("Masukan nama anda");
-            texkinputnama.setForeground(new Color(153, 153, 153));
+            texkinputnama.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_texkinputnamaFocusLost
 
@@ -684,7 +702,7 @@ public class HalamanDaftar extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (texttempatlahir.getText().equals("")) {
             texttempatlahir.setText("Masukan Tempat lahir");
-            texttempatlahir.setForeground(new Color(153, 153, 153));
+            texttempatlahir.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_texttempatlahirFocusLost
 
@@ -700,7 +718,7 @@ public class HalamanDaftar extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (texttanggallahir.getText().equals("")) {
             texttanggallahir.setText("tg/bl/thn");
-            texttanggallahir.setForeground(new Color(153, 153, 153));
+            texttanggallahir.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_texttanggallahirFocusLost
 
@@ -716,7 +734,7 @@ public class HalamanDaftar extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (textEmail.getText().equals("")) {
             textEmail.setText("Example@gmail.com");
-            textEmail.setForeground(new Color(153, 153, 153));
+            textEmail.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_textEmailFocusLost
 
@@ -736,7 +754,7 @@ public class HalamanDaftar extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (textTelpn.getText().equals("")) {
             textTelpn.setText("08......");
-            textTelpn.setForeground(new Color(153, 153, 153));
+            textTelpn.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_textTelpnFocusLost
 
@@ -756,7 +774,7 @@ public class HalamanDaftar extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (textNik.getText().equals("")) {
             textNik.setText("Masukan NIK");
-            textNik.setForeground(new Color(153, 153, 153));
+            textNik.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_textNikFocusLost
 
@@ -772,7 +790,7 @@ public class HalamanDaftar extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (textpanealamat.getText().equals("")) {
             textpanealamat.setText("Ketikan");
-            textpanealamat.setForeground(new Color(153, 153, 153));
+            textpanealamat.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_textpanealamatFocusLost
 
@@ -788,7 +806,7 @@ public class HalamanDaftar extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (textprovinsi.getText().equals("")) {
             textprovinsi.setText("provinsi");
-            textprovinsi.setForeground(new Color(153, 153, 153));
+            textprovinsi.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_textprovinsiFocusLost
 
@@ -804,7 +822,7 @@ public class HalamanDaftar extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (textkodepos.getText().equals("")) {
             textkodepos.setText("Kode pos");
-            textkodepos.setForeground(new Color(153, 153, 153));
+            textkodepos.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_textkodeposFocusLost
 
@@ -820,7 +838,7 @@ public class HalamanDaftar extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (textkabkota.getText().equals("")) {
             textkabkota.setText("kab/kota");
-            textkabkota.setForeground(new Color(153, 153, 153));
+            textkabkota.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_textkabkotaFocusLost
 
@@ -837,7 +855,7 @@ public class HalamanDaftar extends javax.swing.JFrame {
 
         if (textkecmatan.getText().equals("")) {
             textkecmatan.setText("kecamatan");
-            textkecmatan.setForeground(new Color(153, 153, 153));
+            textkecmatan.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_textkecmatanFocusLost
 
@@ -853,33 +871,38 @@ public class HalamanDaftar extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (textnamsekolah.getText().equals("")) {
             textnamsekolah.setText("nama sekolah");
-            textnamsekolah.setForeground(new Color(153, 153, 153));
+            textnamsekolah.setForeground(new Color(0, 0, 0));
         }
     }//GEN-LAST:event_textnamsekolahFocusLost
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        texkinputnama.setText("Masukan nama anda");
-        texttempatlahir.setText("Masukan Tempat lahir");
-        texttanggallahir.setText("tg/bl/thn");
-        lakiradiobutton.setSelected(false);
-        perempuanradiobutton.setSelected(false);
-        kewarganegaraancombobox.setSelectedIndex(0);
-        agamacombobox.setSelectedIndex(0);
-        textNik.setText("Masukan NIK");
-        textTelpn.setText("08......");
-        pendidikancombobox.setSelectedIndex(0);
-        textEmail.setText("Example@gmail.com");
-        textnamsekolah.setText("nama sekolah");
-        textpanealamat.setText("Ketikan");
-        textkodepos.setText("Kode pos");
-        textprovinsi.setText("provinsi");
-        textkabkota.setText("kab/kota");
-        textkecmatan.setText("kecamatan");
-        jurusan1.setSelectedIndex(0);
-        jurusan2.setSelectedIndex(0);
-        setujucekbox.setSelected(false);
-        
+
+        int klik = JOptionPane.showConfirmDialog(null, "Apakah anda ingin menghapus data?", "Update", JOptionPane.YES_OPTION);
+        if (klik == JOptionPane.NO_OPTION) {
+            //kosongkan
+        }else {
+            texkinputnama.setText("Masukan nama anda");
+            texttempatlahir.setText("Masukan Tempat lahir");
+            texttanggallahir.setText("tg/bl/thn");
+            lakiradiobutton.setSelected(false);
+            perempuanradiobutton.setSelected(false);
+            kewarganegaraancombobox.setSelectedIndex(0);
+            agamacombobox.setSelectedIndex(0);
+            textNik.setText("Masukan NIK");
+            textTelpn.setText("08......");
+            pendidikancombobox.setSelectedIndex(0);
+            textEmail.setText("Example@gmail.com");
+            textnamsekolah.setText("nama sekolah");
+            textpanealamat.setText("Ketikan");
+            textkodepos.setText("Kode pos");
+            textprovinsi.setText("provinsi");
+            textkabkota.setText("kab/kota");
+            textkecmatan.setText("kecamatan");
+            jurusan1.setSelectedIndex(0);
+            jurusan2.setSelectedIndex(0);
+            setujucekbox.setSelected(false);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void kembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kembaliActionPerformed
@@ -889,12 +912,14 @@ public class HalamanDaftar extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_kembaliActionPerformed
 
-    private void daftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarActionPerformed
+    private void daftarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarbtnActionPerformed
         // TODO add your handling code here:
+        //variabel
+        
         if (setujucekbox.isSelected() == false) {
             JOptionPane.showMessageDialog(null, "klik centang untuk menyetujui", "error", JOptionPane.ERROR_MESSAGE);
         } else{
-            String jeniskelamin="";
+           
             if (lakiradiobutton.isSelected()) {
                 jeniskelamin = "Laki-laki";
             } else {
@@ -952,7 +977,7 @@ public class HalamanDaftar extends javax.swing.JFrame {
             this.dispose();
       
         }
-    }//GEN-LAST:event_daftarActionPerformed
+    }//GEN-LAST:event_daftarbtnActionPerformed
 
     private void texttanggallahirKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_texttanggallahirKeyTyped
         // TODO add your handling code here:
@@ -1168,6 +1193,56 @@ public class HalamanDaftar extends javax.swing.JFrame {
 
     }//GEN-LAST:event_setujucekboxItemStateChanged
 
+    private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
+        // TODO add your handling code here:
+        if (setujucekbox.isSelected() == false) {
+            JOptionPane.showMessageDialog(null, "klik centang untuk menyetujui", "error", JOptionPane.ERROR_MESSAGE);
+        } else {
+
+            if (lakiradiobutton.isSelected()) {
+                jeniskelamin = "Laki-laki";
+            } else {
+                jeniskelamin = "Perempuan";
+            }
+            try {
+                Cekdata data=new Cekdata();
+                Connection conn = (Connection) DBConnection.connectDatabase();
+                PreparedStatement pst = conn.prepareStatement("UPDATE Tabel_Pendaftaran set Nama_lengkap = ? , Tempat_lahir = ?, Tanggal_lahir = ?, Jenis_kelamin = ?, Kewarganegaraan = ?, Agama = ?, NIK = ?, Email = ?, No_telpon = ?, Pendidikan_Terakhir = ?, Nama_sekolah = ?, Kode_pos = ?, Program_study_1 = ?, Program_study_2 = ?, Provinsi = ?, Alamat = ?, Kecamatan = ?, kabupaten = ? where id = ?");
+                pst.setString(1, texkinputnama.getText());
+                pst.setString(2, texttempatlahir.getText());
+                pst.setString(3, texttanggallahir.getText());
+                pst.setString(4, jeniskelamin );
+                pst.setObject(5, kewarganegaraancombobox.getSelectedItem());
+                pst.setString(6, agamacombobox.getSelectedItem().toString());
+                pst.setString(7, textNik.getText() );
+                pst.setString(8, textEmail.getText() );
+                pst.setString(9,  textTelpn.getText() );
+                pst.setObject(10, pendidikancombobox.getSelectedItem());
+                pst.setString(11, textnamsekolah.getText() );
+                pst.setString(12, textkodepos.getText());
+                pst.setObject(13, jurusan1.getSelectedItem());
+                pst.setObject(14, jurusan2.getSelectedItem());
+                pst.setString(15, textpanealamat.getText() );
+                pst.setString(16,  textprovinsi.getText() );
+                pst.setString(17,textkecmatan.getText()  );
+                pst.setString(18, textkabkota.getText());
+                pst.setString(19, inputId.getText());
+
+                
+                                
+                pst.executeUpdate();
+                data.showTable();
+            } catch (SQLException ex) {
+                Logger.getLogger(HalamanDaftar.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            Halaman_utama utama = new Halaman_utama();
+            utama.setVisible(true);
+            this.dispose();
+
+        }
+    }//GEN-LAST:event_updatebtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1204,8 +1279,9 @@ public class HalamanDaftar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> agamacombobox;
-    private javax.swing.JButton daftar;
+    public javax.swing.JComboBox<String> agamacombobox;
+    public javax.swing.JButton daftarbtn;
+    public javax.swing.JTextField inputId;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1235,26 +1311,27 @@ public class HalamanDaftar extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JComboBox<String> jurusan1;
-    private javax.swing.JComboBox<String> jurusan2;
+    public javax.swing.JComboBox<String> jurusan1;
+    public javax.swing.JComboBox<String> jurusan2;
     private javax.swing.JButton kembali;
-    private javax.swing.JComboBox<String> kewarganegaraancombobox;
-    private javax.swing.JRadioButton lakiradiobutton;
-    private javax.swing.JComboBox<String> pendidikancombobox;
-    private javax.swing.JRadioButton perempuanradiobutton;
+    public javax.swing.JComboBox<String> kewarganegaraancombobox;
+    public javax.swing.JRadioButton lakiradiobutton;
+    public javax.swing.JComboBox<String> pendidikancombobox;
+    public javax.swing.JRadioButton perempuanradiobutton;
     private javax.swing.ButtonGroup radiobutton;
     private javax.swing.JCheckBox setujucekbox;
-    private javax.swing.JTextField texkinputnama;
-    private javax.swing.JTextField textEmail;
-    private javax.swing.JTextField textNik;
-    private javax.swing.JTextField textTelpn;
-    private javax.swing.JTextField textkabkota;
-    private javax.swing.JTextField textkecmatan;
-    private javax.swing.JTextField textkodepos;
-    private javax.swing.JTextField textnamsekolah;
-    private javax.swing.JTextPane textpanealamat;
-    private javax.swing.JTextField textprovinsi;
-    private javax.swing.JTextField texttanggallahir;
-    private javax.swing.JTextField texttempatlahir;
+    public static javax.swing.JTextField texkinputnama;
+    public javax.swing.JTextField textEmail;
+    public javax.swing.JTextField textNik;
+    public javax.swing.JTextField textTelpn;
+    public javax.swing.JTextField textkabkota;
+    public javax.swing.JTextField textkecmatan;
+    public javax.swing.JTextField textkodepos;
+    public javax.swing.JTextField textnamsekolah;
+    public javax.swing.JTextPane textpanealamat;
+    public javax.swing.JTextField textprovinsi;
+    public javax.swing.JTextField texttanggallahir;
+    public javax.swing.JTextField texttempatlahir;
+    public javax.swing.JToggleButton updatebtn;
     // End of variables declaration//GEN-END:variables
 }

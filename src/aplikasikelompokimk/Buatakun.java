@@ -82,7 +82,7 @@ public class Buatakun extends javax.swing.JFrame {
 
         jLabel4.setText("Create password");
 
-        createpasswordtxt.setText("abcdefghij");
+        createpasswordtxt.setText("12345");
         createpasswordtxt.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 createpasswordtxtFocusGained(evt);
@@ -101,13 +101,18 @@ public class Buatakun extends javax.swing.JFrame {
 
         jLabel5.setText("Confiirm password");
 
-        confirmpasswordtxt.setText("abcdefghij");
+        confirmpasswordtxt.setText("12345");
         confirmpasswordtxt.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 confirmpasswordtxtFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 confirmpasswordtxtFocusLost(evt);
+            }
+        });
+        confirmpasswordtxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmpasswordtxtActionPerformed(evt);
             }
         });
 
@@ -208,7 +213,7 @@ public class Buatakun extends javax.swing.JFrame {
 
     private void createpasswordtxtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_createpasswordtxtFocusGained
         // TODO add your handling code here:
-        if(createpasswordtxt.getText().equals("abcdefghij")){
+        if(createpasswordtxt.getText().equals("12345")){
             createpasswordtxt.setText("");
             createpasswordtxt.setForeground(new Color(0,0,0));
         }
@@ -217,14 +222,14 @@ public class Buatakun extends javax.swing.JFrame {
     private void createpasswordtxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_createpasswordtxtFocusLost
         // TODO add your handling code here:
         if(createpasswordtxt.getText().equals("")){
-            createpasswordtxt.setText("abcdefghij");
+            createpasswordtxt.setText("12345");
             createpasswordtxt.setForeground(new Color(0,0,0));
         }
     }//GEN-LAST:event_createpasswordtxtFocusLost
 
     private void confirmpasswordtxtFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_confirmpasswordtxtFocusGained
         // TODO add your handling code here:
-        if(confirmpasswordtxt.getText().equals("abcdefghij")){
+        if(confirmpasswordtxt.getText().equals("12345")){
             confirmpasswordtxt.setText("");
             confirmpasswordtxt.setForeground(new Color(0,0,0));
         }
@@ -233,7 +238,7 @@ public class Buatakun extends javax.swing.JFrame {
     private void confirmpasswordtxtFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_confirmpasswordtxtFocusLost
         // TODO add your handling code here:
         if(confirmpasswordtxt.getText().equals("")){
-            confirmpasswordtxt.setText("abcdefghij");
+            confirmpasswordtxt.setText("12345");
             confirmpasswordtxt.setForeground(new Color(0,0,0));
         }
         
@@ -255,6 +260,10 @@ public class Buatakun extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_loginActionPerformed
+
+    private void confirmpasswordtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmpasswordtxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_confirmpasswordtxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -292,7 +301,7 @@ public class Buatakun extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPasswordField confirmpasswordtxt;
+    public static javax.swing.JPasswordField confirmpasswordtxt;
     private javax.swing.JPasswordField createpasswordtxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -301,6 +310,6 @@ public class Buatakun extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton kembali;
     private javax.swing.JButton login;
-    private javax.swing.JTextField usernametxt;
+    public static javax.swing.JTextField usernametxt;
     // End of variables declaration//GEN-END:variables
 }

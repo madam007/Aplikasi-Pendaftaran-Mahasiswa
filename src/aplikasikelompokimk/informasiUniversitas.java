@@ -37,10 +37,11 @@ public class informasiUniversitas extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Likhan", 2, 18)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("        Universitas Teknologi dan Kelautan (UTEK) adalah sebuah perguruan tinggi yang berfokus pada bidang teknologi dan kelautan. \n  Universitas ini menyediakan berbagai program studi yang terkait dengan teknologi dan kelautan, seperti teknik sipil, \n  teknik mesin, teknik elektro, teknik industri, teknik informatika, teknik kelautan, dan lain-lain.\n  Universitas Teknologi dan Kelautan memiliki fasilitas pendidikan yang lengkap, seperti laboratorium, studio, perpustakaan, dan fasilitas olahraga. \n  Universitas ini juga menyediakan program magang dan kerja praktik bagi mahasiswa, sehingga mahasiswa dapat memperoleh pengalaman\n  kerja selama masa studi.\n        Universitas Teknologi dan Kelautan mengharapkan agar lulusannya dapat menjadi tenaga profesional yang berkompeten dan siap bersaing\n  di dunia kerja.Oleh karena itu, universitas ini memberikan kurikulum yang terintegrasi dengan kebutuhan industri, sehingga lulusan dapat memenuhi \n  kebutuhan tenaga kerja di bidang teknologi dan kelautan.\n        Universitas Teknologi dan Kelautan juga memiliki jaringan kerja sama dengan perusahaan-perusahaan dan institusi di dalam dan di luar negeri, \n  sehingga mahasiswa dapat memperoleh peluang kerja yang lebih luas setelah lulus. Universitas ini juga menyediakan program beasiswa bagi \n  mahasiswa yang membutuhkan bantuan finansial.\n  Dengan fasilitas pendidikan yang lengkap, kurikulum yang terintegrasi dengan kebutuhan industri, dan jaringan kerja sama yang luas, \n  Universitas Teknologi dan Kelautan diharapkan dapat menjadi salah satu universitas terbaik di bidang teknologi dan kelautan.");
+        jTextArea1.setText("      Universitas Teknologi dan Kelautan (UTEK) adalah sebuah perguruan tinggi yang berfokus pada bidang teknologi dan kelautan. \n  Universitas ini menyediakan berbagai program studi yang terkait dengan teknologi dan kelautan, seperti teknik sipil, \n  teknik mesin, teknik elektro, teknik industri, teknik informatika, teknik kelautan, dan lain-lain.\n  Universitas Teknologi dan Kelautan memiliki fasilitas pendidikan yang lengkap, seperti laboratorium, studio, perpustakaan, dan fasilitas olahraga. \n  Universitas ini juga menyediakan program magang dan kerja praktik bagi mahasiswa, sehingga mahasiswa dapat memperoleh pengalaman\n  kerja selama masa studi.\n        Universitas Teknologi dan Kelautan mengharapkan agar lulusannya dapat menjadi tenaga profesional yang berkompeten dan siap bersaing\n  di dunia kerja.Oleh karena itu, universitas ini memberikan kurikulum yang terintegrasi dengan kebutuhan industri, sehingga lulusan dapat memenuhi \n  kebutuhan tenaga kerja di bidang teknologi dan kelautan.\n      Universitas Teknologi dan Kelautan juga memiliki jaringan kerja sama dengan perusahaan-perusahaan dan institusi di dalam dan di luar negeri, \n  sehingga mahasiswa dapat memperoleh peluang kerja yang lebih luas setelah lulus. Universitas ini juga menyediakan program beasiswa bagi \n  mahasiswa yang membutuhkan bantuan finansial.\n  Dengan fasilitas pendidikan yang lengkap, kurikulum yang terintegrasi dengan kebutuhan industri, dan jaringan kerja sama yang luas, \n  Universitas Teknologi dan Kelautan diharapkan dapat menjadi salah satu universitas terbaik di bidang teknologi dan kelautan.");
         jTextArea1.setBorder(null);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -68,8 +69,8 @@ public class informasiUniversitas extends javax.swing.JFrame {
                         .addComponent(kembali, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
