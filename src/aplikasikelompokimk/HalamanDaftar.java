@@ -22,13 +22,12 @@ public class HalamanDaftar extends javax.swing.JFrame {
      * Creates new form HalamanDaftar
      */
     // variabel
-     public String jeniskelamin;
-    
-    
+    public String jeniskelamin;
+
     public HalamanDaftar() {
-       
+
         initComponents();
-       
+
     }
 
     /**
@@ -881,12 +880,11 @@ public class HalamanDaftar extends javax.swing.JFrame {
         int klik = JOptionPane.showConfirmDialog(null, "Apakah anda ingin menghapus data?", "Update", JOptionPane.YES_OPTION);
         if (klik == JOptionPane.NO_OPTION) {
             //kosongkan
-        }else {
+        } else {
             texkinputnama.setText("Masukan nama anda");
             texttempatlahir.setText("Masukan Tempat lahir");
             texttanggallahir.setText("tg/bl/thn");
-            lakiradiobutton.setSelected(false);
-            perempuanradiobutton.setSelected(false);
+            radiobutton.clearSelection();
             kewarganegaraancombobox.setSelectedIndex(0);
             agamacombobox.setSelectedIndex(0);
             textNik.setText("Masukan NIK");
@@ -915,36 +913,49 @@ public class HalamanDaftar extends javax.swing.JFrame {
     private void daftarbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_daftarbtnActionPerformed
         // TODO add your handling code here:
         //variabel
-        
+
         if (setujucekbox.isSelected() == false) {
             JOptionPane.showMessageDialog(null, "klik centang untuk menyetujui", "error", JOptionPane.ERROR_MESSAGE);
-        } else{
-           
+        } //        else{
+        //            if (lakiradiobutton.isSelected()) {
+        //                jeniskelamin = "Laki-laki";
+        //            } else {
+        //                jeniskelamin = "Perempuan";
+        //            }
+        //          int cekitem = JOptionPane.showConfirmDialog(null,
+        //                  "\nNama Lengkap           :"+texkinputnama.getText()
+        //                  +"\nTempat lahir          :"+texttempatlahir.getText()
+        //                  +"\nTanggal lahir         :"+texttanggallahir.getText()
+        //                  +"\nJenis Kelamin         :"+jeniskelamin
+        //                  +"\nKewarganegaraan       :"+kewarganegaraancombobox.getSelectedItem()
+        //                  +"\nAgama                 :"+agamacombobox.getSelectedItem()
+        //                  +"\nNIK                   :"+textNik.getText()
+        //                  +"\nEmail                 :"+textEmail.getText()
+        //                  +"\nNo telpon             :"+textTelpn.getText()
+        //                  +"\nPendidikan Terakhir   :"+pendidikancombobox.getSelectedItem()
+        //                  +"\nNama Sekolah          :"+textnamsekolah.getText()
+        //                  +"\nKode Pos              :"+textkodepos.getText()
+        //                  +"\nProgram Study 1       :"+jurusan1.getSelectedItem()
+        //                  +"\nProgram Study 2       :"+jurusan2.getSelectedItem()
+        //                  +"\nProvinsi              :"+textprovinsi.getText()
+        //                  +"\nAlamat                :"+textpanealamat.getText()
+        //                  +"\nKecamatan             :"+textkecmatan.getText()
+        //                  +"\nKabupaten             :"+textkabkota.getText()
+        //                  
+        //                  ,"List Data",JOptionPane.YES_NO_OPTION);
+        //
+        //           if(cekitem == JOptionPane.NO_OPTION || cekitem == JOptionPane.CLOSED_OPTION){
+        //               
+        //           }
+        else {
             if (lakiradiobutton.isSelected()) {
                 jeniskelamin = "Laki-laki";
             } else {
                 jeniskelamin = "Perempuan";
             }
-//            System.out.println("nama = "+texkinputnama.getText());
-//            System.out.println("tempat lahir = "+texttempatlahir.getText());
-//            System.out.println("Tanggal lahir = "+ texttanggallahir.getText());
-//            System.out.println("Jenis kelamin = "+ jeniskelamin);
-//            System.out.println("Kewarganegaraan = "+ kewarganegaraancombobox.getSelectedItem());
-//            System.out.println("Agama = "+agamacombobox.getSelectedItem());
-//            System.out.println("NIK = "+textNik.getText());
-//            System.out.println("Email = "+textEmail.getText());
-//            System.out.println("No telpon = "+textTelpn.getText());
-//            System.out.println("Pendidikan = "+pendidikancombobox.getSelectedItem());
-//            System.out.println("Nama Sekolah = "+textnamsekolah.getText());
-//            System.out.println("Kode pos = "+textkodepos.getText());
-//            System.out.println("Jurusan ke 1 = "+jurusan1.getSelectedItem());
-//            System.out.println("Jurusan ke 2 = "+jurusan2.getSelectedItem());
-//            System.out.println("Alamat = "+ textpanealamat.getText());
-//            System.out.println("Provinsi = "+textprovinsi.getText());
-//            System.out.println("Kecamatan = "+textkecmatan.getText());
-//            System.out.println("Kabupaten / kota = "+ textkabkota.getText());
+
             try {
-               
+
                 String sql = "INSERT INTO Tabel_Pendaftaran(Nama_lengkap, Tempat_lahir, Tanggal_lahir, Jenis_kelamin, Kewarganegaraan, Agama, NIK, Email, No_telpon, Pendidikan_Terakhir, Nama_sekolah, Kode_pos, Program_study_1, Program_study_2, Provinsi, Alamat, Kecamatan, kabupaten) VALUES('"
                         + texkinputnama.getText() + "','"
                         + texttempatlahir.getText() + "','"
@@ -966,8 +977,8 @@ public class HalamanDaftar extends javax.swing.JFrame {
                         + textkabkota.getText() + "')";
 
                 Connection conn = (Connection) DBConnection.connectDatabase();
-                PreparedStatement pst =conn.prepareStatement(sql);
-                              
+                PreparedStatement pst = conn.prepareStatement(sql);
+
                 pst.execute();
             } catch (SQLException ex) {
                 Logger.getLogger(HalamanDaftar.class.getName()).log(Level.SEVERE, null, ex);
@@ -975,8 +986,9 @@ public class HalamanDaftar extends javax.swing.JFrame {
             Halaman_utama utama = new Halaman_utama();
             utama.setVisible(true);
             this.dispose();
-      
+
         }
+
     }//GEN-LAST:event_daftarbtnActionPerformed
 
     private void texttanggallahirKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_texttanggallahirKeyTyped
@@ -986,7 +998,7 @@ public class HalamanDaftar extends javax.swing.JFrame {
             evt.consume();
             JOptionPane.showMessageDialog(null, "Terlalu panjang");
         }
-         if (Character.isLetter(keychar)) {
+        if (Character.isLetter(keychar)) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "Harus angka");
 
@@ -1160,34 +1172,34 @@ public class HalamanDaftar extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Agama belum dipilih", "error", JOptionPane.ERROR_MESSAGE);
                 setujucekbox.setSelected(false);
             }
-            if(textpanealamat.getText().equals("Ketikan")){
+            if (textpanealamat.getText().equals("Ketikan")) {
                 JOptionPane.showMessageDialog(null, "Alamat belum di isi", "error", JOptionPane.ERROR_MESSAGE);
                 setujucekbox.setSelected(false);
             }
-            if(textkodepos.getText().equals("Kode pos")){
+            if (textkodepos.getText().equals("Kode pos")) {
                 JOptionPane.showMessageDialog(null, "Kode pos belum di isi", "error", JOptionPane.ERROR_MESSAGE);
                 setujucekbox.setSelected(false);
             }
-            if(textprovinsi.getText().equals("provinsi")){
+            if (textprovinsi.getText().equals("provinsi")) {
                 JOptionPane.showMessageDialog(null, "Provinsi belum di isi", "error", JOptionPane.ERROR_MESSAGE);
                 setujucekbox.setSelected(false);
             }
-            if(textkabkota.getText().equals("kab/kota")){
+            if (textkabkota.getText().equals("kab/kota")) {
                 JOptionPane.showMessageDialog(null, "Kabupaten/Kota belum di isi", "error", JOptionPane.ERROR_MESSAGE);
                 setujucekbox.setSelected(false);
             }
-            if(textkecmatan.getText().equals("kecamatan")){
+            if (textkecmatan.getText().equals("kecamatan")) {
                 JOptionPane.showMessageDialog(null, "Kecamatan belum di isi", "error", JOptionPane.ERROR_MESSAGE);
                 setujucekbox.setSelected(false);
             }
-            if(jurusan1.getSelectedIndex() == 0){
+            if (jurusan1.getSelectedIndex() == 0) {
                 JOptionPane.showMessageDialog(null, "Jurusan 1 belum di isi", "error", JOptionPane.ERROR_MESSAGE);
                 setujucekbox.setSelected(false);
             }
-            if(jurusan2.getSelectedIndex() == 0){
+            if (jurusan2.getSelectedIndex() == 0) {
                 JOptionPane.showMessageDialog(null, "Jurusan 2 belum di isi", "error", JOptionPane.ERROR_MESSAGE);
                 setujucekbox.setSelected(false);
-            } 
+            }
 
         }
 
@@ -1197,50 +1209,77 @@ public class HalamanDaftar extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (setujucekbox.isSelected() == false) {
             JOptionPane.showMessageDialog(null, "klik centang untuk menyetujui", "error", JOptionPane.ERROR_MESSAGE);
-        } else {
-
+        } //        else {
+        //            if (lakiradiobutton.isSelected()) {
+        //                jeniskelamin = "Laki-laki";
+        //            } else {
+        //                jeniskelamin = "Perempuan";
+        //            }
+        //         int cekitem = JOptionPane.showConfirmDialog(null,
+        //                  "\nNama Lengkap           :"+texkinputnama.getText()
+        //                  +"\nTempat lahir          :"+texttempatlahir.getText()
+        //                  +"\nTanggal lahir         :"+texttanggallahir.getText()
+        //                  +"\nJenis Kelamin         :"+jeniskelamin
+        //                  +"\nKewarganegaraan       :"+kewarganegaraancombobox.getSelectedItem()
+        //                  +"\nAgama                 :"+agamacombobox.getSelectedItem()
+        //                  +"\nNIK                   :"+textNik.getText()
+        //                  +"\nEmail                 :"+textEmail.getText()
+        //                  +"\nNo telpon             :"+textTelpn.getText()
+        //                  +"\nPendidikan Terakhir   :"+pendidikancombobox.getSelectedItem()
+        //                  +"\nNama Sekolah          :"+textnamsekolah.getText()
+        //                  +"\nKode Pos              :"+textkodepos.getText()
+        //                  +"\nProgram Study 1       :"+jurusan1.getSelectedItem()
+        //                  +"\nProgram Study 2       :"+jurusan2.getSelectedItem()
+        //                  +"\nProvinsi              :"+textprovinsi.getText()
+        //                  +"\nAlamat                :"+textpanealamat.getText()
+        //                  +"\nKecamatan             :"+textkecmatan.getText()
+        //                  +"\nKabupaten             :"+textkabkota.getText()
+        //                  
+        //                  ,"List Data",JOptionPane.YES_NO_OPTION);
+        //          if(cekitem == JOptionPane.NO_OPTION ||cekitem == JOptionPane.CLOSED_OPTION){
+        //              
+        //          }
+        else {
             if (lakiradiobutton.isSelected()) {
                 jeniskelamin = "Laki-laki";
             } else {
                 jeniskelamin = "Perempuan";
             }
             try {
-                Cekdata data=new Cekdata();
+                Cekdata data = new Cekdata();
                 Connection conn = (Connection) DBConnection.connectDatabase();
                 PreparedStatement pst = conn.prepareStatement("UPDATE Tabel_Pendaftaran set Nama_lengkap = ? , Tempat_lahir = ?, Tanggal_lahir = ?, Jenis_kelamin = ?, Kewarganegaraan = ?, Agama = ?, NIK = ?, Email = ?, No_telpon = ?, Pendidikan_Terakhir = ?, Nama_sekolah = ?, Kode_pos = ?, Program_study_1 = ?, Program_study_2 = ?, Provinsi = ?, Alamat = ?, Kecamatan = ?, kabupaten = ? where id = ?");
                 pst.setString(1, texkinputnama.getText());
                 pst.setString(2, texttempatlahir.getText());
                 pst.setString(3, texttanggallahir.getText());
-                pst.setString(4, jeniskelamin );
+                pst.setString(4, jeniskelamin);
                 pst.setObject(5, kewarganegaraancombobox.getSelectedItem());
                 pst.setString(6, agamacombobox.getSelectedItem().toString());
-                pst.setString(7, textNik.getText() );
-                pst.setString(8, textEmail.getText() );
-                pst.setString(9,  textTelpn.getText() );
+                pst.setString(7, textNik.getText());
+                pst.setString(8, textEmail.getText());
+                pst.setString(9, textTelpn.getText());
                 pst.setObject(10, pendidikancombobox.getSelectedItem());
-                pst.setString(11, textnamsekolah.getText() );
+                pst.setString(11, textnamsekolah.getText());
                 pst.setString(12, textkodepos.getText());
                 pst.setObject(13, jurusan1.getSelectedItem());
                 pst.setObject(14, jurusan2.getSelectedItem());
-                pst.setString(15, textpanealamat.getText() );
-                pst.setString(16,  textprovinsi.getText() );
-                pst.setString(17,textkecmatan.getText()  );
+                pst.setString(15, textpanealamat.getText());
+                pst.setString(16, textprovinsi.getText());
+                pst.setString(17, textkecmatan.getText());
                 pst.setString(18, textkabkota.getText());
                 pst.setString(19, inputId.getText());
 
-                
-                                
                 pst.executeUpdate();
                 data.showTable();
             } catch (SQLException ex) {
                 Logger.getLogger(HalamanDaftar.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
             Halaman_utama utama = new Halaman_utama();
             utama.setVisible(true);
             this.dispose();
-
         }
+
     }//GEN-LAST:event_updatebtnActionPerformed
 
     /**

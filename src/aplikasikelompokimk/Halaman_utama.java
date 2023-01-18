@@ -4,7 +4,13 @@
  */
 package aplikasikelompokimk;
 
+import java.awt.Desktop;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.net.URI;
+import java.net.URL;
 import javax.swing.JOptionPane;
+import java.util.Timer;
 
 /**
  *
@@ -13,15 +19,22 @@ import javax.swing.JOptionPane;
 public class Halaman_utama extends javax.swing.JFrame {
     // variabel
    
+    int i = 0;
+   
     /**
      * Creates new form Halaman_utama
      */
     // instance obejt
     public Halaman_utama() {
         initComponents();
+         
+       
+        
 
     }
 
+        
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -243,9 +256,11 @@ public class Halaman_utama extends javax.swing.JFrame {
 
     private void informasiuniversitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_informasiuniversitasActionPerformed
         // TODO add your handling code here:
-        informasiUniversitas info=new informasiUniversitas();
-        info.setVisible(true);
-        this.dispose();
+       try{
+           Desktop.getDesktop().browse(new URL("https://www.google.com/").toURI());
+       }catch(Exception e){
+           e.getMessage();
+       }
     }//GEN-LAST:event_informasiuniversitasActionPerformed
 
     /**

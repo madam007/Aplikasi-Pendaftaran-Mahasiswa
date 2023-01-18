@@ -15,8 +15,6 @@ public class HalamanLogin extends javax.swing.JFrame{
      * Creates new form HalamanLogin
      */
     // variabel
- 
-
     
     public HalamanLogin() {
         initComponents();

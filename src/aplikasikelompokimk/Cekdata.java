@@ -50,7 +50,6 @@ public class Cekdata extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         showtabel = new javax.swing.JTable();
         updatebtn = new javax.swing.JButton();
-        printbtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -132,16 +131,6 @@ public class Cekdata extends javax.swing.JFrame {
             }
         });
 
-        printbtn.setBackground(new java.awt.Color(0, 51, 255));
-        printbtn.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
-        printbtn.setForeground(new java.awt.Color(255, 255, 255));
-        printbtn.setText("Print");
-        printbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                printbtnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -154,9 +143,7 @@ public class Cekdata extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 587, Short.MAX_VALUE)
-                        .addComponent(printbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 702, Short.MAX_VALUE)
                         .addComponent(updatebtn)
                         .addGap(33, 33, 33)
                         .addComponent(deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,8 +162,7 @@ public class Cekdata extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(updatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(printbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(28, 28, 28))))
         );
 
@@ -302,18 +288,6 @@ public class Cekdata extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deletebtnMouseClicked
 
-    private void printbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printbtnActionPerformed
-        // TODO add your handling code here:
-        MessageFormat header = new MessageFormat("Printing in progress");
-        MessageFormat footer = new MessageFormat("Page {0,number,integer}");
-        
-        try{
-           showtabel.print(JTable.PrintMode.NORMAL,header,footer);
-        }catch(PrinterException e){
-            System.err.format("Printer tidak ditemukan", e.getMessage());
-        }
-    }//GEN-LAST:event_printbtnActionPerformed
-
     public void showTable() {
         try {
             Statement stat = (Statement) DBConnection.connectDatabase().createStatement();
@@ -374,7 +348,6 @@ public class Cekdata extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JButton printbtn;
     public javax.swing.JTable showtabel;
     private javax.swing.JButton updatebtn;
     // End of variables declaration//GEN-END:variables
